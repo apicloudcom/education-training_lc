@@ -1,0 +1,41 @@
+<template>
+    <view class="page">
+        <hoc-header-bar-et title="预约报名" />
+        <hoc-order-form-et @handleSubmit="handleSubmit" />
+    </view>
+</template>
+<script>
+import AHeader from "../../components/hoc-header-bar-et.stml";
+import BPreorder from '../../components/hoc-order-form-et.stml';
+import {
+    POST
+} from "../../script/req";
+export default {
+    name: "course-preorder",
+    components: {
+        AHeader,
+        BPreorder
+    },
+    methods: {
+        handleSubmit(forminfo) {
+            api.toast({
+                msg: JSON.stringify(forminfo)
+            });
+            api.openWin({
+                name: 'pay-result',
+                url: '../pay-result/pay-result.stml',
+                pageParam: {
+                    title: '报名成功',
+                    desc: '可在“我的”中查看预约报名记录'
+                }
+            });
+        }
+    }
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background: #FFF;
+}
+</style>

@@ -1,0 +1,175 @@
+<template>
+    <view class="page">
+        <hoc-header-bar-et title="预约报名" />
+
+        <scroll-view style="flex: 1;" v-if="detailInfo">
+            <hoc-pay-course-info-et :cover="detailInfo.rel_order_course_id.cover" :title="detailInfo.rel_order_course_id.title" :price="detailInfo.rel_order_course_id.price" :class_hour="detailInfo.rel_order_course_id.class_hour" />
+            <view class="intro">
+                <a-cell title="课程类型" value="线上直播课" />
+                <a-cell title="开课时间" :value="timer(detailInfo.rel_order_course_id.start_time)" />
+            </view>
+            <hoc-form-list-et title="课程详情" :list="formList" />
+        </scroll-view>
+        <view v-if="detailInfo">
+            <view class="cd__bottom--btn" @click="nextStep" v-if="detailInfo.status===1" style="background: #F1C694;">
+                <text class="cd__bottom--text">重新支付</text>
+            </view>
+            <view class="cd__bottom--btn" v-else style="background: #CCC;">
+                <text class="cd__bottom--text">已完成</text>
+            </view>
+            <safe-area></safe-area>
+        </view>
+    </view>
+</template>
+<script>
+import AHeader from "../../components/hoc-header-bar-et.stml";
+import ACell from "../../components/a-cell.stml";
+import ASection from "../../components/a-section.stml";
+import BFormList from '../../components/hoc-form-list-et.stml';
+import BBasecourseCard from '../../components/hoc-pay-course-info-et.stml';
+import {
+    GET,
+    POST
+} from "../../script/req";
+import {
+    showModal,
+    timer
+} from "../../components/utils";
+export default {
+    name: "order-detail",
+    components: {
+        ASection,
+        ACell,
+        AHeader,
+        BFormList,
+        BBasecourseCard
+    },
+    data() {
+        return {
+            formList: [{
+                label: '课程名称',
+                content: '课程名称'
+            }, {
+                label: '支付金额',
+                content: '支付金额'
+            }, {
+                label: '订单编号',
+                content: '订单编号'
+            }, {
+                label: '创建时间',
+                content: '创建时间'
+            }, {
+                label: '付款时间',
+                content: '付款时间'
+            }],
+            detailInfo: {
+                status: 1,
+                order_number: 111,
+                create_time: '2022-02-02',
+                payment_time: '2022-02-02',
+                amount: 1000,
+                rel_order_course_id: {
+                    start_time: '2022-02-02',
+                    id: "d2a5dff0-2963-11ec-a31b-d9c40205f716",
+                    title: "微信公众号为什么要定位",
+                    introduction: "微信公众号为什么要定位",
+                    class_hour: 2,
+                    price: 20,
+                    type: 2,
+                    video_path: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
+                    cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg"
+                }
+            }
+        };
+    },
+    methods: {
+        nextStep() {
+            showModal({
+                title: '订单已经创建',
+                content: '正在模拟支付过程，正式使用可以接入响应支付渠道。请选择确定支付成功，或者取消支付。',
+                success: res => {
+                    if (res.confirm) {
+                        this.mockPay(this.data.detailInfo.id);
+                    } else {
+                        api.toast({
+                            msg: '用户已经取消支付'
+                        });
+                    }
+                }
+            });
+        },
+        mockPay(orderId) {
+            POST('i_alls/mockPay', {
+                amount: this.data.price,
+                orderId
+            }).then(_ => {
+                this.data.detailInfo.status = 2;
+                api.openWin({
+                    name: 'pay-result',
+                    url: '../pay-result/pay-result.stml',
+                    pageParam: {
+                        title: '支付成功',
+                        desc: '可在“我的”中查看预约报名记录'
+                    }
+                });
+            });
+        }
+    }
+};
+</script>
+<style>
+.page {
+    background: #F8F8F8;
+    height: 100%;
+}
+
+.pay-top {
+    padding: 20px 15px;
+    flex-flow: row nowrap;
+    align-items: center;
+    background: #FFF;
+}
+
+.cover {
+    width: 124px;
+    height: 70px;
+}
+
+.info {
+    margin-left: 15px;
+}
+
+.title {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FA6400;
+    line-height: 16px;
+    font-family: monospace;
+}
+
+.intro {
+    margin-top: 10px;
+    background: #FFF;
+}
+
+.cd__bottom--btn {
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+.cd__bottom--text {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>

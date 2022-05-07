@@ -1,0 +1,76 @@
+<template name="course-detail">
+    <view class="page">
+        <hoc-header-bar-et title="课程详情" />
+        <scroll-view v-if="courseData" style="flex: 1;" scroll-y bounces="false" :show-scrollbar="false">
+            <hoc-course-baseinfo-et :courseData="courseData" />
+            <hoc-course-detail-et />
+            <hoc-handle-btn-et btnText="立即报名" @btnClick="nextStep" />
+            <safe-area></safe-area>
+        </scroll-view>
+    </view>
+</template>
+<script>
+import "../../components/hoc-header-bar-et.stml";
+import "../../components/hoc-course-baseinfo-et.stml";
+import '../../components/hoc-course-detail-et.stml';
+import '../../components/hoc-handle-btn-et.stml';
+export default {
+    name: "course-detail",
+    data() {
+        return {
+            courseData: {
+                "id": "458287d0-daf0-11ea-860c-79b0f1c26dc1",
+                "title": "托福基础班",
+                "introduction": "托福基础班",
+                "class_hour": 20,
+                "price": 3500,
+                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png",
+                "type": 2
+            }
+        };
+    },
+    methods: {
+        nextStep() {
+            if (this.data.courseData.type !== 2) {
+                api.openWin({
+                    name: 'course-pay',
+                    url: '../course-pay/course-pay.stml',
+                    pageParam: api.pageParam
+                });
+            } else {
+                api.openWin({
+                    name: 'course-preorder',
+                    url: '../course-preorder/course-preorder.stml',
+                    pageParam: api.pageParam
+                });
+            }
+        }
+    }
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background: #F8F8F8;
+}
+
+.cd--card {
+    background: #fff;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.cd__bottom--btn {
+    height: 50px;
+    width: 100%;
+    background: #F1C694;
+    justify-content: center;
+    align-items: center;
+}
+
+.cd__bottom--text {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>

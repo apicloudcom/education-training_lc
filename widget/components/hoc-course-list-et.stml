@@ -1,0 +1,94 @@
+<!--不同类别下课程列表-卡片-->
+<template>
+<view class="page">
+	<view
+		v-for="item in list"
+		:key="item.id"
+		class="b-course-card"
+		@click="gotoCourseDetail(item)">
+		<img class="b-course-card-img" :src="item.cover"/>
+		<view class="b-course-card-content">
+			<view class="b-course-card-content-info">
+				<text class="b-course-card-content-title">{{ item.title }}</text>
+				<text class="b-course-card-price">{{ item.class_hour }}课时/{{ item.class_hour }}元</text>
+			</view>
+			<text class="b-course-card-content-desc">{{ item.introduction }}</text>
+		</view>
+	</view>
+</view>
+</template>
+<script>
+export default {
+	name: 'hoc-course-list-et',
+	apiready(){//like created
+
+	},
+	data() {
+		return{
+			list: this.props.list || [{
+                "id":"0f435740-0230-11ec-9c07-fb71c9c0d810",
+                "title":"如何洞察你的核心用户群需求",
+                "introduction":"如何洞察你的核心用户群需求",
+                "class_hour":2,
+                "price":20,
+                "cover":"http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/bd2dae10c63b5b928353e5436f678843.jpg"
+            },
+            {
+                "id":"2b6b8140-aa64-11ec-a6d0-ff1bbab14f44",
+                "title":"test edit 1",
+                "introduction":"test edit 1",
+                "class_hour":50,
+                "price":600,
+                "cover":"http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/18bc1cb51e185a78950a7cf311692370.jpg"
+            }]
+		}
+	},
+	methods: {
+		gotoCourseDetail(item) {
+			this.fire('gotoCourseDetail', item)
+		}
+	}
+}
+</script>
+<style>
+.b-course-card {
+	width: auto;
+	height: auto;
+	margin: 15px;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	border-radius: 4px;
+}
+.b-course-card-img {
+	width: 100%;
+	height: 194px;
+}
+.b-course-card-content {
+	margin: 12px;
+}
+.b-course-card-content-info {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 22px;
+}
+.b-course-card-content-title {
+	flex: 1;
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 8px;
+	flex-wrap: wrap;
+}
+.b-course-card-content-desc {
+	margin-top: 15px;
+	white-space: pre-wrap;
+	font-size: 14px;
+	color: #666666;
+}
+.b-course-card-price {
+	font-size: 16px;
+	color: #FA6400;
+	font-weight: bold;
+}
+</style>

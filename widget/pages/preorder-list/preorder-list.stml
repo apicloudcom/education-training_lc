@@ -1,0 +1,121 @@
+<template>
+    <view class="page">
+        <hoc-header-bar-et title="我的预约" />
+
+        <scroll-view style="flex: 1;" scroll-y>
+            <!--预约课程卡片列表-->
+            <hoc-my-order-card-et v-for="item in list" @itemClick="intoDetail(item)" />
+        </scroll-view>
+
+    </view>
+</template>
+<script>
+import AHeader from "../../components/hoc-header-bar-et.stml";
+import BPreorderCard from '../../components/hoc-my-order-card-et.stml';
+import {
+    GET
+} from "../../script/req";
+import UserManager from "../../script/UserManager";
+import {
+    showModal,
+    timer
+} from "../../components/utils";
+import BNotice from "../../components/hoc-no-data-et.stml";
+export default {
+    name: "preorder-list",
+    components: {
+        BNotice,
+        AHeader,
+        BPreorderCard
+    },
+    data() {
+        return {
+            list: [{
+                status: '1',
+                create_time: '2022-03-27',
+                rel_course_id: {
+                    title: '课程一'
+                }
+            }]
+        };
+    },
+    onshow() { // this.init();
+    },
+    methods: {
+        init() {
+            this.um = new UserManager();
+            if (this.um.data) {
+                this.getList();
+            } else {
+                showModal({
+                    title: "需要登录",
+                    content: "查看您的预约订单需要先登录账号",
+                    showCancel: false,
+                    success: res => {
+                        if (res.confirm) {
+                            api.closeWin();
+                        }
+                    }
+                });
+            }
+        },
+        getList() {
+            GET('i_alls/mineAppointment?userId=' + new UserManager().data.id).then(data => {
+                this.data.list = data;
+            });
+        },
+        intoDetail(pageParam) {
+            api.openWin({
+                name: 'preorder-detail',
+                url: '../preorder-detail/preorder-detail.stml',
+                pageParam
+            });
+        }
+    }
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #F8F8F8;
+}
+
+.pl-item {
+    flex-flow: row nowrap;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0 2px 6px #DDD;
+    border-radius: 4px;
+    padding: 20px 10px;
+    margin: 10px 15px 0;
+}
+
+.pl-item__header {
+    flex-flow: row nowrap;
+}
+
+.pl-item__header--title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.pl-item__header--tag {
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 3px 6px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.pl-item__content--time {
+    margin-top: 14px;
+    color: #999;
+    font-size: 14px;
+}
+
+.pl-item__content--arrow {
+    width: 18px;
+    height: 18px;
+}
+</style>

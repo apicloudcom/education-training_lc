@@ -1,0 +1,84 @@
+<template>
+    <view class="page">
+        <hoc-header-bar-et title="预约支付" />
+        <scroll-view style="flex: 1;" scroll-y>
+            <hoc-pay-course-info-et :cover="cover" :title="title" :class_hour="class_hour" :price="price" />
+            <hoc-pay-desc-et />
+        </scroll-view>
+        <hoc-handle-btn-et btnText="去支付20元111" @btnClick="placeAnOrder" />
+    </view>
+</template>
+<script>
+import AHeader from "../../components/hoc-header-bar-et.stml";
+import BBasecourseCard from '../../components/hoc-pay-course-info-et.stml';
+import BPayContent from '../../components/hoc-pay-desc-et.stml';
+import BHandleBtn from '../../components/hoc-handle-btn-et.stml';
+import {
+    showModal
+} from "../../components/utils";
+import {
+    POST
+} from "../../script/req";
+import UserManager from "../../script/UserManager";
+export default {
+    name: "course-pay",
+    components: {
+        AHeader,
+        BBasecourseCard
+    },
+    installed() {
+        this.userData = new UserManager().data;
+    },
+    data() {
+        return {
+            title: '微信公众号为什么要定位',
+            class_hour: 2,
+            price: 20,
+            cover: 'http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg'
+        };
+    },
+    methods: {
+        placeAnOrder() {
+            POST('i_alls/placeAnOrder', {
+                userId: this.userData.id,
+                courseId: api.pageParam.id
+            }).then(data => {
+                showModal({
+                    title: '订单已经创建',
+                    content: '正在模拟支付过程，正式使用可以接入响应支付渠道。请选择确定支付成功，或者取消支付。',
+                    success: res => {
+                        if (res.confirm) {
+                            this.mockPay(data.id);
+                        } else {
+                            api.toast({
+                                msg: '用户已经取消支付'
+                            });
+                        }
+                    }
+                });
+            });
+        },
+        mockPay(orderId) {
+            POST('i_alls/mockPay', {
+                amount: this.data.price,
+                orderId
+            }).then(_ => {
+                api.openWin({
+                    name: 'pay-result',
+                    url: '../pay-result/pay-result.stml',
+                    pageParam: {
+                        title: '支付成功',
+                        desc: '可在“我的”中查看预约报名记录'
+                    }
+                });
+            });
+        }
+    }
+};
+</script>
+<style>
+.page {
+    background: #F8F8F8;
+    height: 100%;
+}
+</style>

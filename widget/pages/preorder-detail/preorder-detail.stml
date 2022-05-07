@@ -1,0 +1,131 @@
+<template name="preorder-detail">
+    <view class="page">
+        <hoc-header-bar-et title="预约详情" />
+        <scroll-view style="flex: 1;" v-if="detail">
+            <hoc-course-baseinfo-et :courseData="detail.rel_course_id" />
+            <hoc-form-list-et :list="formlist" title="预约信息" />
+        </scroll-view>
+
+        <view v-if="detail">
+            <hoc-handle-btn-et :btnText="detail.status === 1 ? '取消预约' : '已取消'"
+                :bgColor="detail.status === 1 ? '#F1C694' : '#ccc'" @btnClick="nextStep" />
+            <safe-area></safe-area>
+        </view>
+    </view>
+</template>
+<script>
+import AHeader from "../../components/hoc-header-bar-et.stml";
+import BCourse from "../../components/hoc-course-baseinfo-et.stml";
+import ACell from "../../components/a-cell.stml";
+import ASection from "../../components/a-section.stml";
+import BFormList from '../../components/hoc-form-list-et.stml';
+import BHandleBtn from '../../components/hoc-handle-btn-et.stml';
+import {
+    GET,
+    POST
+} from "../../script/req";
+import {
+    showModal,
+    timer
+} from "../../components/utils";
+export default {
+    name: "preorder-detail",
+    components: {
+        BCourse,
+        AHeader,
+        ACell,
+        ASection,
+        BFormList,
+        BHandleBtn
+    },
+    data() {
+        return {
+            detail: {
+                "id": "6e653230-5645-11eb-b53a-d3f0db81efe0",
+                "name": "APP用户60F2",
+                "mobile": "13466669999",
+                "remark": "我下午",
+                "status": 2,
+                "create_time": "2021-01-14T08:49:36.000Z",
+                "course_id": "b794f360-c1f2-11ea-ac75-8d1eaf7aa585",
+                "rel_course_id": {
+                    "id": "458287d0-daf0-11ea-860c-79b0f1c26dc1",
+                    "title": "托福基础班",
+                    "introduction": "托福基础班",
+                    "class_hour": 20,
+                    "price": 3500,
+                    "video_path": "https://www.baidu.com",
+                    "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
+                }
+            },
+            formlist: []
+        };
+    },
+    installed() { // this.getDetail();
+    },
+    methods: {
+        getDetail() {
+            GET('i_alls/appointmentDetail?appointId=' + (api.pageParam.id || '6e653230-5645-11eb-b53a-d3f0db81efe0')).then(data => {
+                this.data.detail = data[0];
+                console.log(data[0]);
+                const {
+                    create_time,
+                    name,
+                    mobile,
+                    remark
+                } = this.data.detail;
+                this.data.detail = this.data.formlist = [{
+                    label: '预约时间',
+                    value: timer(create_time)
+                }, {
+                    label: '预约姓名',
+                    value: name
+                }, {
+                    label: '手机号',
+                    value: mobile
+                }, {
+                    label: '备注',
+                    value: remark
+                }];
+            });
+        },
+        nextStep() {
+            if (this.data.detail.status === 1) {
+                showModal({
+                    title: '取消预约',
+                    content: "您确定要取消本次预约吗",
+                    success: res => {
+                        if (res.confirm) {
+                            POST('i_alls/cancelAppointment', {
+                                appointId: api.pageParam.id
+                            }).then(_ => {
+                                this.data.detail.status = 2;
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+
+.cd__bottom--btn {
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    border-radius: 5px;
+}
+
+.cd__bottom--text {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>

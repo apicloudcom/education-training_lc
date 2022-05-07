@@ -1,0 +1,21 @@
+<template name='tpl'>
+    <view class="page">
+        <hoc-header-bar-et />
+        <hoc-user-panel-et />
+        <hoc-check-list-et />
+    </view>
+</template>
+<script>
+import "../../components/hoc-header-bar-et.stml";
+import '../../components/hoc-user-panel-et.stml';
+import '../../components/hoc-check-list-et.stml';
+export default {
+    name: "tpl"
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #fff;
+}
+</style>
