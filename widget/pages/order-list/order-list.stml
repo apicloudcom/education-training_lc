@@ -29,7 +29,7 @@ export default {
         };
     },
     methods: {
-        intoDetail(item) {
+        intoDetail() {
             api.openWin({
                 name: 'order-detail',
                 url: '../order-detail/order-detail.stml'

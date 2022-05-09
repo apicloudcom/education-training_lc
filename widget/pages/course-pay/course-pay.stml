@@ -20,7 +20,7 @@ import '../../components/hoc-handle-btn-et.stml'
 export default {
     name: "course-pay",
     installed() {
-        this.userData = new UserManager().data;
+        
     },
     data() {
         return {

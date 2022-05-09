@@ -1,7 +1,7 @@
 <template name='course-list'>
     <view class="page">
         <hoc-header-bar-et :isBack="true" title="柚子英语教育" @onBack="onBack" />
-        <hoc-tab-switch-et :tabList="course_category" :curTabIndex="current" @tabClick="tabChange" />
+        <hoc-tab-switch-et :tabList="tabList" :curTabIndex="current" @tabClick="tabChange" />
         <scroll-view scroll-y :show-scrollbar="false">
             <view class="course-tabs__item--list">
                 <hoc-course-list-et :list="dataList" @gotoCourseDetail="goto" />
@@ -18,20 +18,15 @@ import '../../components/hoc-course-list-et.stml';
 export default {
     name: "tab-course",
     apiready() {
-        if (api.pageParam && api.pageParam.id) {
-            this.getCourseData(course_category.findIndex(i => i.id === api.pageParam.id));
-        } else {
-            this.getCourseData(0);
-        }
+        this.getCourseData(0);
     },
     data() {
         // 当前选中tab
-        let curTabIndex = api.pageParam.id ? course_category.findIndex(i => i.id === api.pageParam.id) : 0; // 是否显示左侧icon
         let leftIcon = api.pageParam && api.pageParam.id ? true : false;
         return {
             leftIcon,
-            current: curTabIndex,
-            course_category: [{
+            current: 0,
+            tabList: [{
                 id: "749961c0-bd94-11ea-8376-af740ed8c823",
                 name: "班级通知",
                 sort: 1,
