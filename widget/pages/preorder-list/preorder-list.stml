@@ -3,7 +3,7 @@
         <hoc-header-bar-et title="我的预约" />
         <scroll-view style="flex: 1;" scroll-y>
             <!--预约课程卡片列表-->
-            <hoc-my-order-card-et :list="list" @itemClick="intoDetail(item)" />
+            <hoc-my-order-card-et :list="list" @itemClick="intoDetail" />
         </scroll-view>
 
     </view>
