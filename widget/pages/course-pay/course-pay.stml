@@ -5,7 +5,7 @@
             <hoc-pay-course-info-et :cover="cover" :title="title" :class_hour="class_hour" :price="price" />
             <hoc-pay-desc-et />
         </scroll-view>
-        <hoc-handle-btn-et btnText="去支付20元111" @btnClick="placeAnOrder" />
+        <hoc-handle-btn-et btnText="去支付20元" @btnClick="placeAnOrder" />
     </view>
 </template>
 <script>

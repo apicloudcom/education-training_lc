@@ -2,9 +2,9 @@
     <view class="page">
         <hoc-header-bar-et title="我的订单" />
         <scroll-view style="flex: 1;" scroll-y>
-            <hoc-order-list-et @itemClick="intoDetail" />
+            <hoc-order-list-et @itemClick="intoDetail" :orderList="orderList"/>
         </scroll-view>
-        <hoc-apply-succ-tip-et title="暂无数据哦" icon="../../images/icon__notice--empty.png" />
+        <!-- <hoc-no-data-et title="暂无数据哦" icon="../../images/icon__notice--empty.png" /> -->
     </view>
 </template>
 <script>
@@ -18,7 +18,7 @@ import BOrderCard from '../../components/hoc-order-list-et.stml';
 import {
     GET
 } from "../../script/req";
-import BNotice from "../../components/hoc-apply-succ-tip-et.stml";
+import BNotice from "../../components/hoc-no-data-et.stml";
 export default {
     name: "order-list",
     components: {
@@ -29,28 +29,19 @@ export default {
     },
     data() {
         return {
-            list: [{
-                status: 1,
-                order_number: 111,
-                amount: 1000,
-                rel_order_course_id: {
-                    title: '订单一'
-                }
-            }, {
-                status: 1,
-                order_number: 111,
-                amount: 1000,
-                rel_order_course_id: {
-                    title: '订单二'
-                }
-            }, {
-                status: 1,
-                order_number: 111,
-                amount: 1000,
-                rel_order_course_id: {
-                    title: '订单三'
-                }
-            }]
+            orderList: [{
+				"id": "111",
+				"status": 1,
+				"order_number": 202202,
+				"amount": 1000,
+				"title": "数学竞赛"
+			}, {
+				"id": "222",
+				"status": 1,
+				"order_number": 202202,
+				"amount": 1000,
+				"title": "数学竞赛"
+			}]
         };
     },
     onshow() { // this.init();

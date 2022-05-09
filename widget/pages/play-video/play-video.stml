@@ -1,7 +1,7 @@
 <template>
     <view class="page">
         <hoc-header-bar-et title="查看公开课" />
-        <view class="main">
+        <view class="main" name="21212121">
             <video src={this.data.video_path} poster={this.data.cover} mode="aspectFit" autoplay="true"></video>
         </view>
     </view>

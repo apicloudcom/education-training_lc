@@ -6,9 +6,8 @@
             <view class="course-tabs__item--list">
                 <hoc-course-list-et
                     :list="dataList"
-                    @gotoCourseDetail="goto" />
+                    @gotoCourseDetail="goto"/>
             </view>
-            <hoc-no-data-et title="暂无数据哦" icon="../../images/icon__notice--empty.png" />
         </scroll-view>
     </view>
 </template>

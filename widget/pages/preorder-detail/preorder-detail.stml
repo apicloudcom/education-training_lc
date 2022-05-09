@@ -7,8 +7,8 @@
         </scroll-view>
 
         <view v-if="detail">
-            <hoc-handle-btn-et :btnText="detail.status === 1 ? '取消预约' : '已取消'"
-                :bgColor="detail.status === 1 ? '#F1C694' : '#ccc'" @btnClick="nextStep" />
+            <hoc-handle-btn-et btnText="取消预约"
+                bgColor="#F1C694" @btnClick="nextStep" />
             <safe-area></safe-area>
         </view>
     </view>
