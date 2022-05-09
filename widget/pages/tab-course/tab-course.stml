@@ -1,15 +1,11 @@
 <template name='course-list'>
     <view class="page">
-        <hoc-header-bar-et  title="柚子英语教育" @onBack="onBack" />
-        <hoc-tab-switch-et :tabList="course_category" :curTabIndex="current" @tabClick="tabChange" />
+        <hoc-header-bar-et title="柚子英语教育" @onBack="onBack" />
+        <hoc-tab-switch-et :tabList="tabList" :curTabIndex="current" @tabClick="tabChange" />
         <scroll-view scroll-y :show-scrollbar="false">
-            <!-- <hoc-loading-et /> -->
             <view class="course-tabs__item--list">
-                <hoc-course-list-et
-                    :list="dataList"
-                    @gotoCourseDetail="goto" />
+                <hoc-course-list-et :list="dataList" @gotoCourseDetail="goto" />
             </view>
-            <!-- <hoc-no-data-et /> -->
         </scroll-view>
     </view>
 </template>
@@ -114,32 +110,6 @@ const course_list = [{
         "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/fb0ab252c9b14474fdc9b86f739cb541.jpg"
     }]
 }];
-const course_category = [{
-    "id": "749961c0-bd94-11ea-8376-af740ed8c823",
-    "name": "班级通知",
-    "sort": 1,
-    "image": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/81a87fd10a1230a70471742c0f74fe79.jpg"
-}, {
-    "id": "961d8d30-bd94-11ea-8376-af740ed8c823",
-    "name": "课时课程",
-    "sort": 2,
-    "image": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1b61d88512ca97be541bde8af683c843.jpg"
-}, {
-    "id": "90200b10-bd94-11ea-8376-af740ed8c823",
-    "name": "体育比赛",
-    "sort": 3,
-    "image": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/d1f24b049b711af201636460188b3891.jpg"
-}, {
-    "id": "80fbcea0-022e-11ec-9c07-fb71c9c0d810",
-    "name": "文娱活动",
-    "sort": 5,
-    "image": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/a509a1b7be98d65cf2270f9cb9c07857.jpg"
-}, {
-    "id": "7d001bb0-bd94-11ea-8376-af740ed8c823",
-    "name": "班务管理",
-    "sort": 6,
-    "image": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/da13f315322f6e0c1a1f64e826e75d20.jpg"
-}];
 export default {
     name: "tab-course",
     apiready() {
@@ -148,41 +118,67 @@ export default {
     data() {
         return {
             current: 0,
+            tabList: [{
+                id: "749961c0-bd94-11ea-8376-af740ed8c823",
+                name: "班级通知",
+                sort: 1,
+                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/81a87fd10a1230a70471742c0f74fe79.jpg"
+            }, {
+                id: "961d8d30-bd94-11ea-8376-af740ed8c823",
+                name: "课时课程",
+                sort: 2,
+                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1b61d88512ca97be541bde8af683c843.jpg"
+            }, {
+                id: "90200b10-bd94-11ea-8376-af740ed8c823",
+                name: "体育比赛",
+                sort: 3,
+                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/d1f24b049b711af201636460188b3891.jpg"
+            }, {
+                id: "80fbcea0-022e-11ec-9c07-fb71c9c0d810",
+                name: "文娱活动",
+                sort: 5,
+                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/a509a1b7be98d65cf2270f9cb9c07857.jpg"
+            }, {
+                id: "7d001bb0-bd94-11ea-8376-af740ed8c823",
+                name: "班务管理",
+                sort: 6,
+                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/da13f315322f6e0c1a1f64e826e75d20.jpg"
+            }],
             dataList: [{
-                "id": "38fee560-cd78-11ea-be50-d959bf2e4116",
-                "title": "托福基础班",
-                "introduction": "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
-                "class_hour": 20,
-                "price": 3500,
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
+                id: "38fee560-cd78-11ea-be50-d959bf2e4116",
+                title: "托福基础班",
+                introduction: "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
+                class_hour: 20,
+                price: 3500,
+                cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
             }, {
-                "id": "458287d0-daf0-11ea-860c-79b0f1c26dc1",
-                "title": "托福基础班",
-                "introduction": "托福基础班",
-                "class_hour": 20,
-                "price": 3500,
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
+                id: "458287d0-daf0-11ea-860c-79b0f1c26dc1",
+                title: "托福基础班",
+                introduction: "托福基础班",
+                class_hour: 20,
+                price: 3500,
+                cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
             }, {
-                "id": "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
-                "title": "托福提高斑",
-                "introduction": "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著",
-                "class_hour": 100,
-                "price": 0.01,
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/00742e958766a158e4f76567a251d881.png"
+                id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
+                title: "托福提高斑",
+                introduction: "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著",
+                class_hour: 100,
+                price: 0.01,
+                cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/00742e958766a158e4f76567a251d881.png"
             }, {
-                "id": "5ee00770-d30c-11ea-9dad-25d826e6001a",
-                "title": "2",
-                "introduction": "2",
-                "class_hour": 2,
-                "price": 2,
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/99f764d0118e953e63df8980de7b885a.png"
+                id: "5ee00770-d30c-11ea-9dad-25d826e6001a",
+                title: "2",
+                introduction: "2",
+                class_hour: 2,
+                price: 2,
+                cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/99f764d0118e953e63df8980de7b885a.png"
             }, {
-                "id": "89bcb250-a0e6-11ec-ba17-b737227c5906",
-                "title": " 如何做微信公众号内容规划",
-                "introduction": " 如何做微信公众号内容规划",
-                "class_hour": 2,
-                "price": 20,
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/fb0ab252c9b14474fdc9b86f739cb541.jpg"
+                id: "89bcb250-a0e6-11ec-ba17-b737227c5906",
+                title: " 如何做微信公众号内容规划",
+                introduction: " 如何做微信公众号内容规划",
+                class_hour: 2,
+                price: 20,
+                cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/fb0ab252c9b14474fdc9b86f739cb541.jpg"
             }],
             isLoading: false
         };
@@ -192,7 +188,6 @@ export default {
             api.closeWin();
         },
         getCourseData(curTabIndex) {
-            // this.data.isLoading = true;
             this.data.isLoading = false;
             this.data.dataList = course_list[curTabIndex].list;
         },
@@ -213,6 +208,6 @@ export default {
 <style>
 .page {
     height: 100%;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
 }
 </style>

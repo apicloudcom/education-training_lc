@@ -1,10 +1,10 @@
 <!--预约报名-->
 <template>
 	<scroll-view class="b-preorder">
-    <input class="b-preorder-input" placeholder="姓名" v-model="formInfo.name"/>
-    <input class="b-preorder-input" placeholder="手机号" v-model="formInfo.phone"/>
-    <input class="b-preorder-input" placeholder="来校时间" v-model="formInfo.comeTime"/>
-    <textarea class="b-preorder-input b-preorder-textarea" placeholder="备注" v-model="formInfo.remark"/>
+    <input class="b-preorder-input" placeholder="姓名" v-model="this.data.name"/>
+    <input class="b-preorder-input" placeholder="手机号" v-model="this.data.phone"/>
+    <input class="b-preorder-input" placeholder="来校时间" v-model="this.data.comeTime"/>
+    <textarea class="b-preorder-input b-preorder-textarea" placeholder="备注" v-model="this.data.remark"/>
     <view class="b-preorder-btn" @click="submit">
         <text class="b-preorder-btn-text">提交</text>
     </view>
@@ -15,12 +15,10 @@ export default {
 	name: 'hoc-order-form-et',
 	data() {
 		return {
-      formInfo: {
-        "name": "",
-        "phone": "",
-        "comeTime": "",
-        "remark": ""
-      }
+      name: this.props.name || "",
+      phone: this.props.phone || "",
+      comeTime: this.props.comeTime || "",
+      remark: this.props.remark || ""
 		}
 	},
 	methods: {

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { isApp } from "./utils";
 
 export default {
 	name: "hoc-header-bar-et",

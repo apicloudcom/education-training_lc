@@ -1,7 +1,12 @@
 <template>
     <view class="b-tip">
-        <hoc-header-bar-et :title="this.props.title || '我是大标题2323232323'" />
-        <hoc-apply-succ-tip-et />
+        <hoc-header-bar-et title="我是大标题" isBack={false} />
+        <hoc-apply-succ-tip-et
+            title="报名成功"
+            iconSrc="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png"
+            desc="可在【我的】中查看预约报名记录"
+            btnText="确定" />
+
     </view>
 </template>
 <script>

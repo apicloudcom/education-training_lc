@@ -2,15 +2,15 @@
 <!--课程详情-头部区域基本信息-->
 <template>
   <view class="b-course">
-    <image :src="courseInfo.cover"  class="b-course--cover"/>
-    <text class="b-course--title">{{ this.data.courseInfo.title }}</text>
-    <text class="b-course--introduction">{{ this.data.courseInfo.introduction }}</text>
+    <image :src="cover"  class="b-course--cover"/>
+    <text class="b-course--title">{{ title }}</text>
+    <text class="b-course--introduction">{{ introduction }}</text>
 
     <view class="b-course--footer">
       <text class="b-course--price">
-        {{ this.data.courseInfo.class_hour }}课时 / {{ this.data.courseInfo.price }}元
+        {{ class_hour }}课时 / {{ price }}元
       </text>
-      <view v-if="this.data.courseInfo.video_path" class="b-course--video-box" @click="playVideo">
+      <view v-if="video_path" class="b-course--video-box" @click="playVideo">
         <image class="b-course--icon-video" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/fba3d4eabc8081b9076b4bcb90b1e6f2.png" alt=""/>
         <text class="b-course--goto">查看公开课</text>
       </view>
@@ -23,15 +23,13 @@ export default {
   name: "hoc-course-baseinfo-et",
   data() {
     return {
-      courseInfo: this.props.courseData || {
-        "id":"458287d0-daf0-11ea-860c-79b0f1c26dc1",
-        "title":"托福基础班",
-        "introduction":"托福基础班",
-        "class_hour":20,
-        "price":3500,
-        "video_path": "https://www.baidu.com",
-        "cover":"http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png",
-      }
+      id: this.props.id || "458287d0-daf0-11ea-860c-79b0f1c26dc1",
+      title: this.props.title || "托福基础班",
+      introduction: this.props.introduction || "托福基础班",
+      class_hour: this.props.class_hour || 20,
+      price: this.props.price || 3500,
+      cover: this.props.cover || "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png",
+      video_path: this.props.video_path ||  null
     }
   },
   methods: {

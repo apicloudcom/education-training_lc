@@ -1,77 +1,50 @@
 <template>
     <view class="page">
-        <hoc-header-bar-et title="预约支付" />
+        <hoc-header-bar-et title="预约支付" isBack={false} />
         <scroll-view style="flex: 1;" scroll-y>
-            <hoc-pay-course-info-et :cover="cover" :title="title" :class_hour="class_hour" :price="price" />
-            <hoc-pay-desc-et />
+            <hoc-pay-course-info-et
+                cover="http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg"
+                title="微信公众号为什么要定位"
+                class_hour={2}
+                price="20" />
+            <hoc-pay-desc-et :payInfo="payInfo" payCourseInfo={payInfo} :payCourseInfo="payInfo" />
         </scroll-view>
-        <hoc-handle-btn-et btnText="去支付20元" @btnClick="placeAnOrder" />
+        <hoc-handle-btn-et btnText="去支付20元" btnBgColor="#F1C694" @btnClick="placeAnOrder" />
     </view>
 </template>
 <script>
-import AHeader from "../../components/hoc-header-bar-et.stml";
-import BBasecourseCard from '../../components/hoc-pay-course-info-et.stml';
-import BPayContent from '../../components/hoc-pay-desc-et.stml';
-import BHandleBtn from '../../components/hoc-handle-btn-et.stml';
-import {
-    showModal
-} from "../../components/utils";
-import {
-    POST
-} from "../../script/req";
-import UserManager from "../../script/UserManager";
+import '../../components/hoc-header-bar-et.stml'
+import '../../components/hoc-pay-course-info-et.stml'
+import '../../components/hoc-pay-desc-et.stml'
+import '../../components/hoc-handle-btn-et.stml'
 export default {
     name: "course-pay",
-    components: {
-        AHeader,
-        BBasecourseCard
-    },
     installed() {
         this.userData = new UserManager().data;
     },
     data() {
         return {
-            title: '微信公众号为什么要定位',
-            class_hour: 2,
-            price: 20,
-            cover: 'http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg'
+            payInfo: [{
+                label: "课程类型",
+                isRow: true,
+                value: "线上直播课"
+            }, {
+                label: "开课时间",
+                isRow: true,
+                value: "5月30日 09:00"
+            }, {
+                label: "购买须知",
+                isRow: false,
+                value: "本课程由线上直播授课，请在购买课程后下载xxAPP，并 使用您登录小程序的手机号进行登录，登录后即可同步您 购买的课程进行上课。"
+            }]
         };
     },
     methods: {
         placeAnOrder() {
-            POST('i_alls/placeAnOrder', {
-                userId: this.userData.id,
-                courseId: api.pageParam.id
-            }).then(data => {
-                showModal({
-                    title: '订单已经创建',
-                    content: '正在模拟支付过程，正式使用可以接入响应支付渠道。请选择确定支付成功，或者取消支付。',
-                    success: res => {
-                        if (res.confirm) {
-                            this.mockPay(data.id);
-                        } else {
-                            api.toast({
-                                msg: '用户已经取消支付'
-                            });
-                        }
-                    }
-                });
-            });
-        },
-        mockPay(orderId) {
-            POST('i_alls/mockPay', {
-                amount: this.data.price,
-                orderId
-            }).then(_ => {
-                api.openWin({
-                    name: 'pay-result',
-                    url: '../pay-result/pay-result.stml',
-                    pageParam: {
-                        title: '支付成功',
-                        desc: '可在“我的”中查看预约报名记录'
-                    }
-                });
-            });
+            api.toast({
+                msg:'支付成功!'
+            })
+            api.closeWin()
         }
     }
 };

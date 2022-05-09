@@ -59,7 +59,6 @@ export default {
 <style>
 .main__teacher {
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 16px;

@@ -1,26 +1,16 @@
 <template>
     <view class="page">
         <hoc-header-bar-et title="预约报名" />
-        <hoc-order-form-et @handleSubmit="handleSubmit" name="212121212" />
+        <hoc-order-form-et @handleSubmit="handleSubmit" name="" phone="" comeTime="" remark="" />
     </view>
 </template>
 <script>
-import AHeader from "../../components/hoc-header-bar-et.stml";
-import BPreorder from '../../components/hoc-order-form-et.stml';
-import {
-    POST
-} from "../../script/req";
+import '../../components/hoc-header-bar-et.stml'
+import '../../components/hoc-order-form-et.stml'
 export default {
     name: "course-preorder",
-    components: {
-        AHeader,
-        BPreorder
-    },
     methods: {
         handleSubmit(forminfo) {
-            api.toast({
-                msg: JSON.stringify(forminfo)
-            });
             api.openWin({
                 name: 'pay-result',
                 url: '../pay-result/pay-result.stml',

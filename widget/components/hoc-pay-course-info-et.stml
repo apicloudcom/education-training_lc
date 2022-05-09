@@ -1,10 +1,10 @@
 <!--报名-头部课程信息-->
 <template>
 	<view class="b-basecourse-card">
-		<img :src="courseInfo.cover" class="b-basecourse-card-cover"/>
+		<img :src="cover" class="b-basecourse-card-cover"/>
 		<view class="b-basecourse-card-info">
-			<text class="b-basecourse-card-title">{ courseInfo.title }</text>
-			<text class="b-basecourse-card-price"> { courseInfo.class_hour }课时 / { courseInfo.price }元</text>
+			<text class="b-basecourse-card-title">{ title }</text>
+			<text class="b-basecourse-card-price"> { class_hour }课时 / { price }元</text>
 		</view>
 	</view>
 </template>
@@ -16,12 +16,10 @@
 		},
 		data() {
 			return{
-				courseInfo: this.props.courseInfo || {
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
-					"title": "微信公众号为什么要定位",
-					"class_hour": 2,
-					"price": 20
-				}
+				cover: this.props.cover || "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
+				title: this.props.title || "微信公众号为什么要定位",
+				class_hour: this.props.class_hour || 2,
+				price: this.props.price || 20
 			}
 		},
 		methods: {

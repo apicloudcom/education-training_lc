@@ -2,73 +2,33 @@
     <view class="page">
         <hoc-header-bar-et title="我的订单" />
         <scroll-view style="flex: 1;" scroll-y>
-            <hoc-order-list-et @itemClick="intoDetail" :orderList="orderList"/>
+            <hoc-order-list-et @itemClick="intoDetail" :orderList="orderList" />
         </scroll-view>
-        <!-- <hoc-no-data-et title="暂无数据哦" icon="../../images/icon__notice--empty.png" /> -->
     </view>
 </template>
 <script>
-import AHeader from "../../components/hoc-header-bar-et.stml";
-import ACard from "../../components/a-card.stml";
-import UserManager from "../../script/UserManager";
-import {
-    showModal
-} from "../../components/utils";
-import BOrderCard from '../../components/hoc-order-list-et.stml';
-import {
-    GET
-} from "../../script/req";
-import BNotice from "../../components/hoc-no-data-et.stml";
+import "../../components/hoc-header-bar-et.stml";
+import '../../components/hoc-order-list-et.stml';
 export default {
     name: "order-list",
-    components: {
-        BNotice,
-        ACard,
-        AHeader,
-        BOrderCard
-    },
     data() {
         return {
             orderList: [{
-				"id": "111",
-				"status": 1,
-				"order_number": 202202,
-				"amount": 1000,
-				"title": "数学竞赛"
-			}, {
-				"id": "222",
-				"status": 1,
-				"order_number": 202202,
-				"amount": 1000,
-				"title": "数学竞赛"
-			}]
+                id: "111",
+                status: 2,
+                order_number: 200,
+                amount: 1000,
+                title: "数学竞赛"
+            }, {
+                id: "222",
+                status: 1,
+                order_number: 600,
+                amount: 1000,
+                title: "数学竞赛"
+            }]
         };
     },
-    onshow() { // this.init();
-    },
     methods: {
-        init() {
-            this.um = new UserManager();
-            if (this.um.data) {
-                this.getList();
-            } else {
-                showModal({
-                    title: "需要登录",
-                    content: "查看您的订单需要先登录账号",
-                    showCancel: false,
-                    success: res => {
-                        if (res.confirm) {
-                            api.closeWin();
-                        }
-                    }
-                });
-            }
-        },
-        getList() {
-            GET('i_alls/mineOrders?userId=' + new UserManager().data.id).then(data => {
-                this.data.list = data;
-            });
-        },
         intoDetail(item) {
             api.openWin({
                 name: 'order-detail',
@@ -82,42 +42,5 @@ export default {
 .page {
     height: 100%;
     background: #F8F8F8;
-}
-
-.ol-item {
-    background: #FFFFFF;
-    box-shadow: 0 2px 6px #e2e0e0;
-    border-radius: 4px;
-    margin: 10px;
-}
-
-.ol-item__header {
-    flex-flow: row nowrap;
-    padding: 20px 10px;
-    border-bottom: 1px solid #F1F1F1;
-}
-
-.ol-item__header--title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333333;
-    flex: 1;
-}
-
-.ol-item__header--status {
-    font-size: 14px;
-}
-
-.ol-item__content {
-    padding: 10px;
-}
-
-.ol-item__content--order {
-    margin-bottom: 10px;
-}
-
-.ol-item__content--li {
-    color: #999;
-    font-size: 14px;
 }
 </style>
