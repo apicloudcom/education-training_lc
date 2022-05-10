@@ -1,11 +1,11 @@
 <template>
-	<scroll-view class="a-tabs" scroll-x :show-scrollbar="false">
+	<view class="a-tabs">
 		<view v-for="(item, index) in tabList" :key="item.id" class="a-tab-item"
 			@click="tabClick(item, index)">
 			<text :class="`a-tab-item-text  ${current === index ? 'a-tab-item-text-active' : ''}`">{item.name}</text>
 			<text class="a-tab-item-line" v-if="current === index"></text>
 		</view>
-	</scroll-view>
+	</view>
 </template>
 <script>
 export default {
@@ -71,6 +71,7 @@ export default {
 	height: 44px;
 	flex-shrink: 0;
 	background: #fff;
+	overflow: auto;
 }
 .a-tab-item {
 	flex: 1;
