@@ -1,6 +1,6 @@
 <template name='course-list'>
     <view class="page">
-        <hoc-header-bar-et :isBack="true" title="柚子英语教育" @onBack="onBack" />
+        <hoc-header-bar-et isBack title="柚子英语教育" @onBack="onBack" />
         <hoc-tab-switch-et :tabList="tabList" :curTabIndex="current" @tabClick="tabChange" />
         <scroll-view scroll-y :show-scrollbar="false">
             <view class="course-tabs__item--list">
