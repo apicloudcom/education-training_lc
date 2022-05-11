@@ -1,6 +1,6 @@
 <template>
     <view class="page">
-        <hoc-header-bar-et title="预约报名" isBack={false} />
+        <hoc-header-bar-et title="预约报名" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;">
             <hoc-pay-course-info-et
                 cover="http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg"
@@ -40,7 +40,11 @@ export default {
             }]
         };
     },
-    methods: {}
+    methods: {
+        onBack() {
+            api.closeWin();
+        },
+    }
 };
 </script>
 <style>

@@ -1,6 +1,6 @@
 <template>
     <view class="page">
-        <hoc-header-bar-et title="我的预约" />
+        <hoc-header-bar-et title="我的预约" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;" scroll-y>
             <!--预约课程卡片列表-->
             <hoc-my-order-card-et :list="list" @itemClick="intoDetail" />
@@ -28,6 +28,9 @@ export default {
         };
     },
     methods: {
+        onBack() {
+            api.closeWin();
+        },
         intoDetail(pageParam) {
             api.openWin({
                 name: 'preorder-detail',

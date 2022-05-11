@@ -1,11 +1,12 @@
 <template>
     <view class="b-tip">
-        <hoc-header-bar-et title="我是大标题" isBack={false} />
+        <hoc-header-bar-et title="柚子英语教育" isBack @onBack="onBack"/>
         <hoc-apply-succ-tip-et
             title="报名成功"
             iconSrc="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png"
             desc="可在【我的】中查看预约报名记录"
-            btnText="确定" />
+            btnText="确定"
+            @btnClick="sureBtnClick"/>
 
     </view>
 </template>
@@ -19,7 +20,11 @@ export default {
         AHeader
     },
     methods: {
-        back() {
+        onBack() {
+            api.closeWin();
+        },
+        sureBtnClick() {
+            api.closeWin();
             this.fire('btnClick');
         }
     }

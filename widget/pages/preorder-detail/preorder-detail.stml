@@ -1,6 +1,6 @@
 <template name="preorder-detail">
     <view class="page">
-        <hoc-header-bar-et title="预约详情" />
+        <hoc-header-bar-et title="预约详情" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;">
             <hoc-course-baseinfo-et
                 id="458287d0-daf0-11ea-860c-79b0f1c26dc1"
@@ -44,6 +44,9 @@ export default {
     },
     installed() {},
     methods: {
+        onBack() {
+            api.closeWin();
+        },
         nextStep() {
             api.confirm({
                 title: '提示',

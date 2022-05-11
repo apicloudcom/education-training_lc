@@ -1,6 +1,6 @@
 <template name='tpl'>
     <view class="page">
-        <hoc-header-bar-et title="柚子英语教育" isBack="false" leftIcon="" rightIcon="" />
+        <hoc-header-bar-et title="柚子英语教育" isBack={false} leftIcon="" rightIcon="" />
         <hoc-user-panel-et userName="APP用户9626" />
         <hoc-check-list-et :list="checkList" />
     </view>
@@ -14,17 +14,17 @@ export default {
     data() {
         return {
             checkList: [{
-				id: 'preorderList',
-				leftIcon: '../../images/icon__user-cell--alarm.png',
-				text: '我的预约',
-				extraText: '立即查看',
-				link: '../preorder-list/preorder-list.stml'
-			}, {
-				id: 'orderList',
-				leftIcon: '../../images/icon__user-cell--order.png',
-				text: '我的线上课订单',
-				link: '../order-list/order-list.stml'
-			}]
+                id: 'preorderList',
+                leftIcon: '../../images/icon__user-cell--alarm.png',
+                text: '我的预约',
+                extraText: '立即查看',
+                link: '../preorder-list/preorder-list.stml'
+            }, {
+                id: 'orderList',
+                leftIcon: '../../images/icon__user-cell--order.png',
+                text: '我的线上课订单',
+                link: '../order-list/order-list.stml'
+            }]
         };
     }
 };

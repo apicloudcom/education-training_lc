@@ -1,6 +1,6 @@
 <template>
     <view class="page">
-        <hoc-header-bar-et title="我的订单" />
+        <hoc-header-bar-et title="我的订单" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;" scroll-y>
             <hoc-order-list-et @itemClick="intoDetail" :orderList="orderList" />
         </scroll-view>
@@ -29,6 +29,9 @@ export default {
         };
     },
     methods: {
+        onBack() {
+            api.closeWin();
+        },
         intoDetail() {
             api.openWin({
                 name: 'order-detail',
