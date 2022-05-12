@@ -12,8 +12,8 @@
 		},
 		data() {
 			return{
-				btnBgColor: this.props.btnBgColor || "#F1C694",
-            	btnText: this.props.btnText || '按钮文本'
+				btnBgColor: this.props.bgColor !== undefined ? this.props.bgColor : "#F1C694",
+            	btnText: this.props.btnText !== undefined ? this.props.btnText : '按钮文本'
 			}
 		},
 		methods: {

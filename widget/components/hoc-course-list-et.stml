@@ -1,46 +1,48 @@
 <!--不同类别下课程列表-卡片-->
 <template>
-<view class="page">
-	<view
-		v-for="item in list"
-		:key="item.id"
-		class="b-course-card"
-		@click="gotoCourseDetail(item)">
-		<img class="b-course-card-img" :src="item.cover"/>
-		<view class="b-course-card-content">
-			<view class="b-course-card-content-info">
-				<text class="b-course-card-content-title">{{ item.title }}</text>
-				<text class="b-course-card-price">{{ item.class_hour }}课时/{{ item.class_hour }}元</text>
+	<view class="page">
+		<view v-for="item in list" :key="item.id" class="b-course-card" @click="gotoCourseDetail(item)">
+			<img class="b-course-card-img" :src="item.cover" />
+			<view class="b-course-card-content">
+				<view class="b-course-card-content-info">
+					<text class="b-course-card-content-title">{{ item.title }}</text>
+					<text class="b-course-card-price">{{ item.class_hour }}课时/{{ item.class_hour }}元</text>
+				</view>
+				<text class="b-course-card-content-desc">{{ item.introduction }}</text>
 			</view>
-			<text class="b-course-card-content-desc">{{ item.introduction }}</text>
 		</view>
 	</view>
-</view>
 </template>
 <script>
 export default {
 	name: 'hoc-course-list-et',
-	apiready(){//like created
+	apiready() {//like created
 
 	},
 	data() {
-		return{
+		return {
 			list: this.props.list || [{
-                "id":"0f435740-0230-11ec-9c07-fb71c9c0d810",
-                "title":"如何洞察你的核心用户群需求",
-                "introduction":"如何洞察你的核心用户群需求",
-                "class_hour":2,
-                "price":20,
-                "cover":"http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/bd2dae10c63b5b928353e5436f678843.jpg"
-            },
-            {
-                "id":"2b6b8140-aa64-11ec-a6d0-ff1bbab14f44",
-                "title":"test edit 1",
-                "introduction":"test edit 1",
-                "class_hour":50,
-                "price":600,
-                "cover":"http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/18bc1cb51e185a78950a7cf311692370.jpg"
-            }]
+				id: "38fee560-cd78-11ea-be50-d959bf2e4116",
+				title: "托福基础班",
+				introduction: "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
+				class_hour: 20,
+				price: 3500,
+				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
+			}, {
+				id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
+				title: "托福提高斑",
+				introduction: "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著。",
+				class_hour: 20,
+				price: 3500,
+				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png"
+			}, {
+				id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea6",
+				title: "托福提分斑",
+				introduction: "托福听说读写核心考点分析和讲解，全面提升托福综合能力，帮助学员冲刺前30的美国名校。",
+				class_hour: 20,
+				price: 5000,
+				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png"
+			}]
 		}
 	},
 	methods: {
@@ -88,7 +90,7 @@ export default {
 }
 .b-course-card-price {
 	font-size: 16px;
-	color: #FA6400;
+	color: #fa6400;
 	font-weight: bold;
 }
 </style>

@@ -17,7 +17,7 @@ export default {
 	name: "hoc-header-bar-et",
 	data() {
 		return {
-			title: this.props.title || '柚子英语教育',
+			title: this.props.title !== undefined ? this.props.title : '柚子英语教育',
 			isBack: this.props.isBack || false,
 			leftIcon: this.props.leftIcon || null,
 			rightIcon: this.props.rightIcon || null

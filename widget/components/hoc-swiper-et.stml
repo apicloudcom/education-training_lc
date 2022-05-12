@@ -14,38 +14,22 @@ export default {
 	},
 	data() {
 		return {
-			swiperList: this.props.swiperList || [
-				{
-					"id": "33993850-0288-11ec-9c07-fb71c9c0d810",
-					"title": "0",
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/2cda070a815f0eec0833f209f6cd08cc.jpg",
-					"jump_url": null
-				},
-				{
-					"id": "4064f8f0-9dea-11ec-8e9b-03659952203e",
-					"title": "1",
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
-					"jump_url": null
-				},
-				{
-					"id": "425fd800-03ee-11ec-a31b-d9c40205f716",
-					"title": "2",
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/a08406b7922a582c1d730ba80f1b85bc.jpg",
-					"jump_url": null
-				},
-				{
-					"id": "49439b70-03ee-11ec-a31b-d9c40205f716",
-					"title": "3",
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/cfddbef8adfa50b8442db2bbbc0061f3.jpg",
-					"jump_url": null
-				},
-				{
-					"id": "58b2ddb0-a285-11ec-88ce-0fa89481d651",
-					"title": "4",
-					"cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/8f5b2793125a7995f725b31f45be10fe.jpg",
-					"jump_url": null
-				}
-			]
+			swiperList: this.props.swiperList || [{
+                "id": "33993850-0288-11ec-9c07-fb71c9c0d810",
+                "title": "0",
+                "cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png",
+                "jump_url": null
+            }, {
+                "id": "4064f8f0-9dea-11ec-8e9b-03659952203e",
+                "title": "1",
+                "cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png",
+                "jump_url": null
+            }, {
+                "id": "425fd800-03ee-11ec-a31b-d9c40205f716",
+                "title": "2",
+                "cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png",
+                "jump_url": null
+            }]
 		}
 	},
 	methods: {

@@ -1,17 +1,17 @@
 <template name='tab-home'>
-    <view class="page">
-        <hoc-header-bar-et title="柚子英语教育" />
-        <scroll-view class="main" scroll-y>
-            <!--头部轮播-->
-            <hoc-swiper-et :swiperList="banners" />
-            <!--课程类别菜单-->
-            <hoc-course-menu-et :menuList="menuList" @itemClick="gotoCourse" />
-            <!--名师团队-->
-            <hoc-teacher-team-et :teacherList="teacherList" @itemClick="teacherClick" />
-            <!--关于我们-->
-            <hoc-aboutus-et :contents="contents" />
-        </scroll-view>
-    </view>
+	<view class="page">
+		<hoc-header-bar-et title="柚子英语教育" />
+		<scroll-view class="main" scroll-y>
+			<!--头部轮播-->
+			<hoc-swiper-et :swiperList="banners" />
+			<!--课程类别菜单-->
+			<hoc-course-menu-et :menuList="menuList" @itemClick="gotoCourse" />
+			<!--名师团队-->
+			<hoc-teacher-team-et :teacherList="teacherList" @itemClick="teacherClick" />
+			<!--关于我们-->
+			<hoc-aboutus-et :contents="contents" />
+		</scroll-view>
+	</view>
 </template>
 <script>
 import "../../components/hoc-header-bar-et.stml";
@@ -20,167 +20,184 @@ import '../../components/hoc-course-menu-et.stml';
 import '../../components/hoc-teacher-team-et.stml';
 import '../../components/hoc-aboutus-et.stml'; // 首页-轮播图数据
 export default {
-    name: "tab-home",
-    installed() {
-        // 显式声明状态栏样式 解决部分安卓机型自动生成的灰色半透明背景
-        api.setStatusBarStyle && api.setStatusBarStyle({
-            style: 'dark',
-            //字体样式
-            color: '-' //背景色
-        });
-    },
-    data() {
-        return {
-            banners: [{
-                "id": "33993850-0288-11ec-9c07-fb71c9c0d810",
-                "title": "0",
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/2cda070a815f0eec0833f209f6cd08cc.jpg",
-                "jump_url": null
-            }, {
-                "id": "4064f8f0-9dea-11ec-8e9b-03659952203e",
-                "title": "1",
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
-                "jump_url": null
-            }, {
-                "id": "425fd800-03ee-11ec-a31b-d9c40205f716",
-                "title": "2",
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/a08406b7922a582c1d730ba80f1b85bc.jpg",
-                "jump_url": null
-            }, {
-                "id": "49439b70-03ee-11ec-a31b-d9c40205f716",
-                "title": "3",
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/cfddbef8adfa50b8442db2bbbc0061f3.jpg",
-                "jump_url": null
-            }, {
-                "id": "58b2ddb0-a285-11ec-88ce-0fa89481d651",
-                "title": "4",
-                "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/8f5b2793125a7995f725b31f45be10fe.jpg",
-                "jump_url": null
-            }],
-            menuList: [{
-                id: "749961c0-bd94-11ea-8376-af740ed8c823",
-                name: "班级通知",
-                sort: 1,
-                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/81a87fd10a1230a70471742c0f74fe79.jpg"
-            }, {
-                id: "961d8d30-bd94-11ea-8376-af740ed8c823",
-                name: "课时课程",
-                sort: 2,
-                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1b61d88512ca97be541bde8af683c843.jpg"
-            }, {
-                id: "90200b10-bd94-11ea-8376-af740ed8c823",
-                name: "体育比赛",
-                sort: 3,
-                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/d1f24b049b711af201636460188b3891.jpg"
-            }, {
-                id: "80fbcea0-022e-11ec-9c07-fb71c9c0d810",
-                name: "文娱活动",
-                sort: 5,
-                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/a509a1b7be98d65cf2270f9cb9c07857.jpg"
-            }, {
-                id: "7d001bb0-bd94-11ea-8376-af740ed8c823",
-                name: "班务管理",
-                sort: 6,
-                image: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/da13f315322f6e0c1a1f64e826e75d20.jpg"
-            }],
-            teacherList: [{
-                name: "孙学胜",
-                thumb: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/b512ecf81c2637a752d4e3fdfc2cdb53.png",
-                introduction: "每天，当太阳升起来的时候，非洲大草原上的动物们就开始奔跑了。狮子妈妈在教育自己的孩子：“孩子，你必须跑得再快一点，再快一点，你要是跑不过最慢的羚羊，你就会活活地饿死。”在另外一个场地上，羚羊妈妈也在教育自己的孩子：“孩子，你必须跑得再快一点，再快一点，如果你不能比跑得最快的狮子还要快，你那肯定就会被他们吃掉。”"
-            }, {
-                name: "曹领臣",
-                thumb: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/168d31eb88dbe673fb3c2d8c64d50154.jpg",
-                introduction: "多数的错失，是因为不坚持，不努力，不挽留，然后催眠自己说一切都是命运。分手不是一种罪过，而是一种经历，就像一场蓄谋已久的远行，唯一不同的是，有的是你主动选择，有的则是被动接受;时过境迁，你留给过去的不过是一抹淡淡的微笑和浅浅的回忆，你会忘记当初为什么会那么痛苦和"
-            }, {
-                name: "周鹏庆",
-                thumb: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/84070e46de6ba60bff8302dbad3df1a8.jpg",
-                introduction: "把现在的工作做好，才能幻想将来的事情，专注于眼前的事情，对于尚未发生的事情而陷入无休止的忧虑之中，对事情毫无帮助，反而为自己凭添了烦恼。"
-            }, {
-                name: "周鹏庆",
-                thumb: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/84070e46de6ba60bff8302dbad3df1a8.jpg",
-                introduction: "把现在的工作做好，才能幻想将来的事情，专注于眼前的事情，对于尚未发生的事情而陷入无休止的忧虑之中，对事情毫无帮助，反而为自己凭添了烦恼。"
-            }],
-            contents: [{
-                value: "<p>重拾梦想，享受追梦的过程，因为追梦本身就是一种成长。我不知道坚持下去能否成功，但是我知道不坚持就会一无所有。不是所有的梦想都能实现，但是实现梦想的过程对自己来说是一种历练、一种提升，在这期间磨练的技能也会在未来的某一刻派上用场。</p><p>如果不愿沉溺于现实的安逸，那就做一只跳出温水的青蛙。余生未可知，庸庸碌碌也好、奋起直追也好，愿你不要辜负似水流年。</p>"
+	name: "tab-home",
+	installed() {
+		// 显式声明状态栏样式 解决部分安卓机型自动生成的灰色半透明背景
+		api.setStatusBarStyle && api.setStatusBarStyle({
+			style: 'dark',
+			//字体样式
+			color: '-' //背景色
+		});
+	},
+	data() {
+		return {
+			banners: [{
+				"id": "33993850-0288-11ec-9c07-fb71c9c0d810",
+				"title": "0",
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png",
+				"jump_url": null
+			}, {
+				"id": "4064f8f0-9dea-11ec-8e9b-03659952203e",
+				"title": "1",
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png",
+				"jump_url": null
+			}, {
+				"id": "425fd800-03ee-11ec-a31b-d9c40205f716",
+				"title": "2",
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png",
+				"jump_url": null
+			}],
+			menuList: [{
+				id: "749961c0-bd94-11ea-8376-af740ed8c823",
+				name: "雅思培训",
+				sort: 1,
+				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/390be1f11e19e09f45c1136bba0b53f1.png"
+			}, {
+				id: "961d8d30-bd94-11ea-8376-af740ed8c823",
+				name: "托福培训",
+				sort: 2,
+				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/7169bed4660ca42b7c6f847bcbfcd58e.png"
+			}, {
+				id: "90200b10-bd94-11ea-8376-af740ed8c823",
+				name: "商务英语",
+				sort: 3,
+				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4fe32561e81c4b7dda9b8a30ae18e287.png"
+			}, {
+				id: "80fbcea0-022e-11ec-9c07-fb71c9c0d810",
+				name: "少儿英语",
+				sort: 5,
+				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/0c659a25e1561802b467b14a1b7c209c.png"
+			}],
+			teacherList: [{
+				name: "张亦宏",
+				thumb: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/380f6633aab0352d42dc1217a8d10c8f.png",
+				introduction: "10余年雅思教龄"
+			}, {
+				name: "王明云",
+				thumb: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/380f6633aab0352d42dc1217a8d10c8f.png",
+				introduction: "12余年托福教龄"
+			}, {
+				name: "周宇航",
+				thumb: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/380f6633aab0352d42dc1217a8d10c8f.png",
+				introduction: "近20年雅思教龄"
+			}],
+			contents: [{
+				value: "<p class='content-text'>柚子英语教育，创建于2007年，专为为有学习英语需求的学员提供英语辅导教学。采取“直播+辅导”双师模式，AI技术辅助教学。总部设立在北京，先后在上海、广州、深圳、天津、杭州、成都、西安、南京等地成立分支机构，现已有120余所辅导中心，成为颇受家长和学生信赖的英语辅导品牌之一。秉承“激发兴趣、培养习惯、塑造品格”的教育理念，柚子英语不仅关注学生学习成绩的提高，更关注学生学习兴趣的激发、学习习惯的培养和思维模式的塑造。柚子英语以“给孩子受益一生的教育”为使命，为广大学子提供优质的课程辅导和贴心的教学服务，满足学生英语课外补习需求。</p>"
+			}, {
+                value: "<img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/70886d751d5940247055ab8b88854e08.png' style='height: 194px; width: 100%; margin: 15px 0;'/>"
+            },
+			// {
+            //     value: "<div style='display: flex; flex-direction: row; align-items: center; margin: 15px 0;'><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>教职员工</div><div class='desc-list-item-desc'>3000+</div></div><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>覆盖城市</div><div class='desc-list-item-desc'>200+</div></div><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>上课学员</div><div class='desc-list-item-desc'>30w+</div></div></div>"
+            // },
+			{
+                value: "<p class='content-text'>柚子英语教育还与北京大学数学系、南开大学数学系、上海交大数学系、武汉大学数学系等机构签订合作协议，成为他们的实习基地和就业实践基地。依托强大的教学资源与师资力量，柚子英语以实现优秀教育资源的共享为己任，建立起英语网络远程教育平台，大量学员在每年的考试与各类竞赛中取得优异成绩。</p>"
             }]
-        };
-    },
-    methods: {
-        gotoCourse(data) {
-            api.openWin({
-                name: 'course-list',
-                url: '../course-list/course-list.stml',
-                pageParam: {
-                    ...data.detail
-                }
-            });
-        },
-        teacherClick(data) {
-            const {
-                name,
-                introduction
-            } = data.detail;
-            this.showModal({
-                title: name,
-                content: introduction,
-                success(res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定');
-                    } else if (res.cancel) {
-                        console.log('用户点击取消');
-                    }
-                },
-                complete(res) {
-                    console.log(res);
-                }
-            });
-        },
-        showModal({
-            ...options
-        }) {
-            if (!api.appVersion) {
-                return wx.showModal(options);
-            } else {
-                options.msg = options.content;
-                const showCancel = options.showCancel || true;
-                if (showCancel) {
-                    api.confirm(options, _ => {
-                        _result({
-                            ..._,
-                            confirm: _.buttonIndex === 2,
-                            cancel: _.buttonIndex === 1
-                        });
-                    });
-                } else {
-                    api.alert(options, _ => {
-                        _result({
-                            ..._,
-                            confirm: _.buttonIndex === 1,
-                            cancel: false
-                        });
-                    });
-                }
+		};
+	},
+	methods: {
+		gotoCourse(data) {
+			api.openWin({
+				name: 'course-list',
+				url: '../course-list/course-list.stml',
+				pageParam: {
+					...data.detail
+				}
+			});
+		},
+		teacherClick(data) {
+			const {
+				name,
+				introduction
+			} = data.detail;
+			this.showModal({
+				title: name,
+				content: introduction,
+				success(res) {
+					if (res.confirm) {
+						console.log('用户点击确定');
+					} else if (res.cancel) {
+						console.log('用户点击取消');
+					}
+				},
+				complete(res) {
+					console.log(res);
+				}
+			});
+		},
+		showModal({
+			...options
+		}) {
+			if (!api.appVersion) {
+				return wx.showModal(options);
+			} else {
+				options.msg = options.content;
+				const showCancel = options.showCancel || true;
+				if (showCancel) {
+					api.confirm(options, _ => {
+						_result({
+							..._,
+							confirm: _.buttonIndex === 2,
+							cancel: _.buttonIndex === 1
+						});
+					});
+				} else {
+					api.alert(options, _ => {
+						_result({
+							..._,
+							confirm: _.buttonIndex === 1,
+							cancel: false
+						});
+					});
+				}
 
-                function _result(res) {
-                    if (res) {
-                        options.success && options.success(res);
-                    } else {
-                        options.fail && options.fail();
-                    }
-                    options.complete && options.complete(res);
-                }
-            }
-        }
-    }
+				function _result(res) {
+					if (res) {
+						options.success && options.success(res);
+					} else {
+						options.fail && options.fail();
+					}
+					options.complete && options.complete(res);
+				}
+			}
+		}
+	}
 };
 </script>
 <style>
 .page {
-    width: 100%;
-    height: 100%;
-    background: #f2f2f2;
+	width: 100%;
+	height: 100%;
+	background: #f2f2f2;
 }
 .main {
-    flex: 1;
+	flex: 1;
+}
+.content-text {
+	color: #666;
+	font-size: 14px;
+	line-height: 24px;
+    margin: 0;
+    padding: 0;
+}
+.desc-list-item {
+    background: #f00;
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+}
+.desc-list-item-title {
+	font-size: 14px;
+	font-weight: 400;
+	color: #999;
+	line-height: 14px;
+	padding: 10px 0;
+}
+.desc-list-item-desc {
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	line-height: 16px;
 }
 </style>

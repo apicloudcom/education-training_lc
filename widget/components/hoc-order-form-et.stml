@@ -23,34 +23,34 @@ export default {
 	},
 	methods: {
 		submit(formnfo) {
-      const {name, phone, comeTime} = this.data.formInfo;
-      if (!name) {
+      const {name, phone, comeTime} = this.data;
+      if (!this.data.name) {
           api.toast({
             msg: '请输入姓名!'
           })
           return false;
       }
-      if (!phone) {
+      if (!this.data.phone) {
           api.toast({
             msg: '请输入手机号!'
           })
           return false;
       }
 
-      if (!/^1[3456789]\d{9}$/.test(phone)) {
+      if (!/^1[3456789]\d{9}$/.test(this.data.phone)) {
           api.toast({
             msg: '请输入正确的手机号!'
           })
           return false;
       }
 
-      if (!comeTime) {
+      if (!this.data.comeTime) {
           api.toast({
             msg: '请输入来校时间!'
           })
           return false;
       }
-      this.fire('handleSubmit', this.data.formInfo)
+      this.fire('handleSubmit', this.data)
 		}
 	}
 }

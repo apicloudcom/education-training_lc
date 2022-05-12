@@ -3,10 +3,10 @@
         <hoc-header-bar-et title="预约支付" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;" scroll-y>
             <hoc-pay-course-info-et
-                cover="http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg"
-                title="微信公众号为什么要定位"
-                class_hour={2}
-                price="20" />
+                cover="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
+                title="托福提高班"
+                class_hour={20}
+                price="3500" />
             <hoc-pay-desc-et :payInfo="payInfo" payCourseInfo={payInfo} :payCourseInfo="payInfo" />
         </scroll-view>
         <hoc-handle-btn-et btnText="去支付20元" btnBgColor="#F1C694" @btnClick="placeAnOrder" />

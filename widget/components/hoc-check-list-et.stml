@@ -1,12 +1,12 @@
 <!--可选择列表-->
 <template>
 <view class="a-checklist">
-	<view v-for="item in defaultList" :key="item.id" class="a-checklist-item" @click="handleClick(item)">
+	<view v-for="item in list" :key="item.id" class="a-checklist-item" @click="handleClick(item)">
 		<img :src="item.leftIcon" alt="left" class="a-checklist-item-left-icon" v-if="item.leftIcon"/>
 		<text class="a-checklist-item-text">{item.text}</text>
 		<view class="a-checklist-item-right">
 			<text class="a-checklist-item-right-text">{item.extraText}</text>
-			<img class="a-checklist-item-right-icon" :src="item.rightIcon || '../../images/icon__preorder-list--item-arrow.png'" alt="right">
+			<img class="a-checklist-item-right-icon" :src="item.rightIcon || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/32c33a52906720ff44bd953ad901b853.png'" alt="right">
 		</view>
 	</view>
 </view>
@@ -16,17 +16,17 @@ export default {
 	name: 'hoc-check-list-et',
 	data() {
 		return {
-			defaultList: this.props.list || [{
+			list: this.props.list || [{
 				id: 'preorderList',
-				leftIcon: '../../images/icon__user-cell--alarm.png',
+				leftIcon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f5286334165d33c9e96aad27d08d67cb.png',
 				text: '我的预约',
 				extraText: '立即查看',
-				link: '../preorder-list/preorder-list.stml'
+				link: null
 			}, {
 				id: 'orderList',
-				leftIcon: '../../images/icon__user-cell--order.png',
+				leftIcon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/07d97e58534b11938a0d1c682c2511df.png',
 				text: '我的线上课订单',
-				link: '../order-list/order-list.stml'
+				link: null
 			}]
 		}
 	},
@@ -47,6 +47,7 @@ export default {
 .a-checklist {
 	background: #fff;
 	padding: 0 16px;
+	margin-bottom: 10px;
 }
 .a-checklist-item {
 	padding: 15px 0;
@@ -62,7 +63,7 @@ export default {
 	flex: 1;
 	font-size: 14px;
 	color: #333;
-	margin: 0 15px;
+	margin-right: 15px;
 }
 .a-checklist-item-right {
 	flex-direction: row;

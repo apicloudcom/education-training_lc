@@ -3,8 +3,8 @@
 	<view class="b-basecourse-card">
 		<img :src="cover" class="b-basecourse-card-cover"/>
 		<view class="b-basecourse-card-info">
-			<text class="b-basecourse-card-title">{ title }</text>
-			<text class="b-basecourse-card-price"> { class_hour }课时 / { price }元</text>
+			<text class="b-basecourse-card-title">{{ title }}</text>
+			<text class="b-basecourse-card-price"> {{ class_hour }}课时 / {{ price }}元</text>
 		</view>
 	</view>
 </template>
@@ -16,10 +16,10 @@
 		},
 		data() {
 			return{
-				cover: this.props.cover || "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
-				title: this.props.title || "微信公众号为什么要定位",
-				class_hour: this.props.class_hour || 2,
-				price: this.props.price || 20
+				cover: this.props.cover !== undefined ? this.props.cover : "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/1f696c571be82ee158b24cd3414ef07d.jpg",
+				title: this.props.title !== undefined ? this.props.title : "微信公众号为什么要定位",
+				class_hour: this.props.class_hour !== undefined ? this.props.class_hour : 2,
+				price: this.props.price !== undefined ? this.props.price : 20
 			}
 		},
 		methods: {

@@ -16,10 +16,10 @@ export default {
   name: "hoc-apply-succ-tip-et",
   data() {
     return {
-      iconSrc: this.props.iconSrc || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
-      title: this.props.title || '报名成功',
-      desc: this.props.desc || '可在【我的】中查看预约报名记录',
-      btnText: this.props.btnText || '确定'
+      iconSrc: this.props.iconSrc !== undefined ? this.props.iconSrc : 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+      title: this.props.title !== undefined ? this.props.title : '报名成功',
+      desc: this.props.desc !== undefined ? this.props.desc : '可在"我的"中查看预约报名记录',
+      btnText: this.props.btnText !== undefined ? this.props.btnText : '确定'
     }
   },
   methods: {

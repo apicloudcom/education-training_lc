@@ -14,8 +14,8 @@ export default {
 	},
 	data() {
 		return{
-			curTab: this.props.curTab || 'index',
-			tabList:[{
+			curTab: this.props.curTab !== undefined ? this.props.curTab : 'index',
+			tabList: this.props.tabList || [{
 					"icon": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/e2eeef19cabf85214c89ab0dc8c9720f.png",
 					"activeIcon": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/489dedc6acb0733479d99fb103d2a8c0.png",
 					"text": "首页",

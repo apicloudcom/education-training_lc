@@ -1,7 +1,7 @@
 <template>
-<view class="a-module-title">
-	<view class="a-module-title--solid"></view>
-	<text class="a-module-title--text">{{moduleTitle}}</text>
+<view class="a-module-title" :style="{background: this.data.bgColor}">
+	<view class="a-module-title--solid" :style="{height: this.data.fontSize}"></view>
+	<text class="a-module-title--text" :style="fontStyle">{moduleTitle}</text>
 </view>
 </template>
 <script>
@@ -12,7 +12,18 @@ export default {
 	},
 	data() {
 		return{
-			moduleTitle: this.props.moduleTitle || '我是大标题'
+			moduleTitle: this.props.moduleTitle !== undefined ? this.props.moduleTitle : '我是大标题',
+			bgColor: this.props.bgColor !== undefined ? this.props.bgColor : '#fff',
+            fontSize: this.props.fontSize !== undefined ? this.props.fontSize : '18px',
+            fontColor: this.props.fontColor !== undefined ? this.props.fontColor : '#333'
+		}
+	},
+	computed: {
+		fontStyle() {
+			return {
+				fontSize: this.data.fontSize,
+				color: this.data.fontColor
+			}
 		}
 	},
 	methods: {
@@ -23,23 +34,24 @@ export default {
 <style>
 .a-module-title {
 	padding: 16px;
+	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background: #fff;
 }
 
 .a-module-title--solid {
   width: 4px;
-  height: 18px;
   background: #F1C694;
   margin-right: 8px;
   border-radius: 4px;
 }
 
 .a-module-title--text {
-  line-height: 1;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 1;
+	font-weight: bold;
 }
 </style>

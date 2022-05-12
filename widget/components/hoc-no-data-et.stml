@@ -12,8 +12,8 @@ export default {
 	},
 	data() {
 		return{
-			iconSrc: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/a74aa8ce90ba4ed3ec5c9963208ed856.png",
-			title: "暂无数据哦"
+			iconSrc: this.props.iconSrc !== undefined ? this.props.iconSrc : "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/a74aa8ce90ba4ed3ec5c9963208ed856.png",
+			title: this.props.title !== undefined ? this.props.title : "暂无数据哦"
 		}
 	},
 	methods: {
