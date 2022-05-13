@@ -187,7 +187,7 @@ export const course_list = [
             },
             {
                 "id":"4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
-                "title":"托福提高斑",
+                "title":"托福提高班",
                 "introduction":"针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著",
                 "class_hour":100,
                 "price":0.01,

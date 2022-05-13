@@ -89,7 +89,7 @@ const course_list = [{
         "cover": "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
     }, {
         "id": "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
-        "title": "托福提高斑",
+        "title": "托福提高班",
         "introduction": "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著",
         "class_hour": 100,
         "price": 0.01,
@@ -148,14 +148,14 @@ export default {
                 cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
             }, {
                 id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
-                title: "托福提高斑",
+                title: "托福提高班",
                 introduction: "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著。",
                 class_hour: 20,
                 price: 3500,
                 cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png"
             }, {
                 id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea6",
-                title: "托福提分斑",
+                title: "托福提分班",
                 introduction: "托福听说读写核心考点分析和讲解，全面提升托福综合能力，帮助学员冲刺前30的美国名校。",
                 class_hour: 20,
                 price: 5000,
