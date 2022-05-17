@@ -47,28 +47,24 @@ export default {
 				sort: 5,
 				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/0c659a25e1561802b467b14a1b7c209c.png"
 			}],
-			dataList: [{
-				id: "38fee560-cd78-11ea-be50-d959bf2e4116",
-				title: "托福基础班",
-				introduction: "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
-				class_hour: 20,
-				price: 3500,
-				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
-			}, {
-				id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea5",
-				title: "托福提高班",
-				introduction: "针对性地讲解托福考试中的考点和学生们的问题，听说读写核心考点讲授，学习效果显著。",
-				class_hour: 20,
-				price: 3500,
-				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png"
-			}, {
-				id: "4e17d4f0-db76-11ea-b3b2-3d48f89dcea6",
-				title: "托福提分班",
-				introduction: "托福听说读写核心考点分析和讲解，全面提升托福综合能力，帮助学员冲刺前30的美国名校。",
-				class_hour: 20,
-				price: 5000,
-				cover: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png"
-			}],
+			dataList: [
+				{
+					id: "486747f0-e6c7-11ea-8da4-530d11e9ab6f",
+					title: "托福基础班",
+					introduction: "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
+					class_hour: 100,
+					price: 6000,
+					cover: "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/76abf6b3c8df591a726c3156427b1171.png"
+				},
+				{
+					id: "d38e2bc0-d296-11ec-8b39-cda3e4fd4f7b",
+					title: "提交学习能力",
+					introduction: "专项针对听说和读写进行授课，符合英语学习规律为冲刺托福高分奠定坚实基础。",
+					class_hour: 50,
+					price: 1254,
+					cover: "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/45cad7acde20f5ee41692957385a9453.png"
+				}
+			],
 			isLoading: false
 		};
 	},

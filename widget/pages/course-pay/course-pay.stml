@@ -3,8 +3,8 @@
         <hoc-header-bar-et title="预约支付" isBack @onBack="onBack"/>
         <scroll-view style="flex: 1;" scroll-y>
             <hoc-pay-course-info-et
-                cover="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
-                title="托福提高班"
+                cover="http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/76abf6b3c8df591a726c3156427b1171.png"
+                title="托福基础班"
                 class_hour={20}
                 price="3500" />
             <hoc-pay-desc-et :payInfo="payInfo" payCourseInfo={payInfo} :payCourseInfo="payInfo" />

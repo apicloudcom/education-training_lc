@@ -17,7 +17,7 @@
 		data() {
 			return{
 				moduleTitle: this.props.moduleTitle !== undefined ? this.props.moduleTitle : '课程详情',
-				content: this.props.content !== undefined ? this.props.content :  '<span>重拾梦想</span>，<img src="http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/da13f315322f6e0c1a1f64e826e75d20.jpg" style="width: 20px; height: 20px;"/>享受追梦的过程，因为追梦本身就是一种成长。'
+				content: this.props.content !== undefined ? this.props.content :  "<img src='http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/ee81799a56acb99a6bf2f76dc14c7a99.png' style='width: 100%;'/>"
 			}
 		},
 		methods: {

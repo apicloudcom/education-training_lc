@@ -23,13 +23,13 @@ export default {
   name: "hoc-course-baseinfo-et",
   data() {
     return {
-      id: this.props.id !== undefined ? this.props.id :  "458287d0-daf0-11ea-860c-79b0f1c26dc1",
+      id: this.props.id !== undefined ? this.props.id :  "486747f0-e6c7-11ea-8da4-530d11e9ab6f",
       title: this.props.title !== undefined ? this.props.title : "托福基础班",
       introduction: this.props.introduction !== undefined ? this.props.introduction : "托福基础班",
       class_hour: this.props.class_hour !== undefined ? this.props.class_hour : 20,
       price: this.props.price !== undefined ? this.props.price : 3500,
       // video_path: this.props.video_path !== undefined ?  "https://www.baidu.com",
-      cover: this.props.cover !== undefined ? this.props.cover : "http://a0a67a2d94d23442aaa3.qiniucdn.apicloud-system.com/apicloud/f644528c36a155b6d7e05deb972f504a.png"
+      cover: this.props.cover !== undefined ? this.props.cover : "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/76abf6b3c8df591a726c3156427b1171.png"
     }
   },
   methods: {

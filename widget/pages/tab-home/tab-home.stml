@@ -32,41 +32,24 @@ export default {
 	data() {
 		return {
 			banners: [{
-				"id": "33993850-0288-11ec-9c07-fb71c9c0d810",
-				"title": "0",
-				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png",
-				"jump_url": null
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f37011096dcb1d65093b6aa247b4f7c7.png"
 			}, {
-				"id": "4064f8f0-9dea-11ec-8e9b-03659952203e",
-				"title": "1",
-				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png",
-				"jump_url": null
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e904b8fcf2572d05d44c553f3f74f04.png"
 			}, {
-				"id": "425fd800-03ee-11ec-a31b-d9c40205f716",
-				"title": "2",
-				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png",
-				"jump_url": null
+				"cover": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/d0e5835a20a57e2716aba301ae715893.png"
 			}],
 			menuList: [{
-				id: "749961c0-bd94-11ea-8376-af740ed8c823",
 				name: "雅思培训",
-				sort: 1,
-				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/390be1f11e19e09f45c1136bba0b53f1.png"
+				image: "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/62d63d588551d1c75bd11404e0666d9f.png"
 			}, {
-				id: "961d8d30-bd94-11ea-8376-af740ed8c823",
 				name: "托福培训",
-				sort: 2,
-				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/7169bed4660ca42b7c6f847bcbfcd58e.png"
+				image: "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/936c24de0b3049dea6162b5d9bcf01cb.png"
 			}, {
-				id: "90200b10-bd94-11ea-8376-af740ed8c823",
 				name: "商务英语",
-				sort: 3,
-				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4fe32561e81c4b7dda9b8a30ae18e287.png"
+				image: "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/06a6961f626afd2d539e66a30725c3e3.png"
 			}, {
-				id: "80fbcea0-022e-11ec-9c07-fb71c9c0d810",
 				name: "少儿英语",
-				sort: 5,
-				image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/0c659a25e1561802b467b14a1b7c209c.png"
+				image: "http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/12cb821ff1c86094e67f55c08b8d5f6c.png"
 			}],
 			teacherList: [{
 				name: "张亦宏",
@@ -84,14 +67,12 @@ export default {
 			contents: [{
 				value: "<p class='content-text'>柚子英语教育，创建于2007年，专为为有学习英语需求的学员提供英语辅导教学。采取“直播+辅导”双师模式，AI技术辅助教学。总部设立在北京，先后在上海、广州、深圳、天津、杭州、成都、西安、南京等地成立分支机构，现已有120余所辅导中心，成为颇受家长和学生信赖的英语辅导品牌之一。秉承“激发兴趣、培养习惯、塑造品格”的教育理念，柚子英语不仅关注学生学习成绩的提高，更关注学生学习兴趣的激发、学习习惯的培养和思维模式的塑造。柚子英语以“给孩子受益一生的教育”为使命，为广大学子提供优质的课程辅导和贴心的教学服务，满足学生英语课外补习需求。</p>"
 			}, {
-                value: "<img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/70886d751d5940247055ab8b88854e08.png' style='height: 194px; width: 100%; margin: 15px 0;'/>"
-            },
-			// {
-            //     value: "<div style='display: flex; flex-direction: row; align-items: center; margin: 15px 0;'><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>教职员工</div><div class='desc-list-item-desc'>3000+</div></div><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>覆盖城市</div><div class='desc-list-item-desc'>200+</div></div><div style='width: 33%; display: flex; flex-direction: column; align-items: center; justify-content: center;'><img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/08f0b0eddc704b17b39dd6c891da9d58.png' style='width: 70px; height: 70px;'/><div class='desc-list-item-title'>上课学员</div><div class='desc-list-item-desc'>30w+</div></div></div>"
-            // },
+				value: "<img src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/70886d751d5940247055ab8b88854e08.png' style='height: 194px; width: 100%; margin: 15px 0;'/>"
+			},
 			{
-                value: "<p class='content-text'>柚子英语教育还与北京大学数学系、南开大学数学系、上海交大数学系、武汉大学数学系等机构签订合作协议，成为他们的实习基地和就业实践基地。依托强大的教学资源与师资力量，柚子英语以实现优秀教育资源的共享为己任，建立起英语网络远程教育平台，大量学员在每年的考试与各类竞赛中取得优异成绩。</p>"
-            }]
+				value: "<p class='content-text'>柚子英语教育还与北京大学数学系、南开大学数学系、上海交大数学系、武汉大学数学系等机构签订合作协议，成为他们的实习基地和就业实践基地。依托强大的教学资源与师资力量，柚子英语以实现优秀教育资源的共享为己任，建立起英语网络远程教育平台，大量学员在每年的考试与各类竞赛中取得优异成绩。</p>"
+			}
+			]
 		};
 	},
 	methods: {
@@ -176,16 +157,16 @@ export default {
 	color: #666;
 	font-size: 14px;
 	line-height: 24px;
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 .desc-list-item {
-    background: #f00;
+	background: #f00;
 	width: 33%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 }
 .desc-list-item-title {
 	font-size: 14px;
