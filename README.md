@@ -12,10 +12,10 @@
 ## 源码文件目录结构说明
 
 项目源码在widget目录下，该目录下的文件说明如下：
-
-┌─component/ // 项目公共组件目录 
+```
+┌─component/ // 项目公共组件目录
 │ ├─hoc-aboutus-et.stml // [高级组件]关于我们
-│ ├─hoc-apply-succ-tip-et.stml // [高级组件]报名成功提示 
+│ ├─hoc-apply-succ-tip-et.stml // [高级组件]报名成功提示
 │ ├─hoc-check-list-et.stml // [高级组件]可选择列表 
 │ ├─hoc-course-baseinfo-et.stml // [高级组件]课程基本信息卡片 
 │ ├─hoc-course-detail-et.stml // [高级组件]课程详情说明 
@@ -69,6 +69,7 @@
 │ │ └─couselist.js // 课程列表信息 
 │ │ └─req.js // 项目请求交互文件 
 └─config.xml // 应用配置文件
+```
 
 ## 怎么使用可视化工具进行开发
 1. 下载最新版的[APICloud Studio 3](https://www.apicloud.com/studio3#downloadBtn)
