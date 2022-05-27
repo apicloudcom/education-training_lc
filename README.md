@@ -1,9 +1,10 @@
 # 项目介绍
-
 ## 功能描述
+
 本项目是一个教育培训服务APP。里面涉及到的所有页面都是由APICloud可视化工具中的高级组件进行拼接而成的静态页面，不涉及业务逻辑相关的操作。目的是为了实现在APICloud可视化工具设计界面中能够正常显示页面中的内容。
 
 ## 可视化界面显示以及预览截图
+
 ![png1](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/af3e339a84580d5d796fd8f90af9dbed.png)
 ![png2](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ffbd5c5d0d040ceba1f4715687152ba3.png)
 ![png3](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/2b267712255aca9dffbe886e1ef96cbe.png)
@@ -72,16 +73,23 @@
 ```
 
 ## 怎么使用可视化工具进行开发
+
 1. 下载最新版的[APICloud Studio 3](https://www.apicloud.com/studio3#downloadBtn)
+
 2. 下载成功后，安装后打开，顶部菜单选择【项目】-【新建项目】，填写应用名称，选择相应模板，点【完成】按钮进行创建。
+
 ![png5](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/fb81dfff6db840c80648fa841ad85573.png)
+
 3. 创建完项目后打开某一个页面，点击左上角图标可切换为可视化界面，可进行页面的设计，左侧栏可根据项目需求拖拽任意组件到画布中，右侧属性设置栏可对拖拽的组件进行设置。具体操作可查看 [可视化工具的使用视频](https://www.apicloud.com/video_play/20_1825)。
+
 ![png6](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/a9e94c0cd5821d3e93c0847c86e4b097.png)
 ![png7](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/b32b79ab20b164011029abd05fdb26f4.png)
 
 ## 技术支持
+
 使用中若有任何疑问可到APICloud论坛 [AVM多端](https://developer.yonyou.com/forum-71-1.html) 专区发帖提问。官方技术支持和众多活跃开发者会第一时间为您提供技术支持。
 
 
 ## 项目源码
+
 http://git.yonyou.com/APICloud-CF/education-training_lc
