@@ -93,4 +93,4 @@
 
 ## 项目源码
 
-http://git.yonyou.com/APICloud-CF/education-training_lc
+https://github.com/apicloudcom/education-training_lc
